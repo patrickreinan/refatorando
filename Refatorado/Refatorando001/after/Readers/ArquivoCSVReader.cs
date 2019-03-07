@@ -1,11 +1,16 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace Refatorando001.after.Readers
 {
-    class ArquivoCSVReader : IArquivoReader
+    class ArquivoCSVReader : ArquivoReaderBase
     {
-        public ReaderResult LerArquivo(string caminho)
+        public ArquivoCSVReader(Layout layout) : base(layout)
+        {
+        }
+
+        public override ReaderResult LerArquivo(string caminho)
         {
 
             /*
@@ -18,8 +23,21 @@ namespace Refatorando001.after.Readers
             */
 
             /*retorna um reader result com os dados*/
-            return new ReaderResult();
+
+
+            /*fake somente para demonstração...*/
+            var linhas = File.ReadAllLines(caminho);
+            var builder = new StringBuilder();
+            foreach(var linha in linhas)
+            {
+                var dados = linha.Split(Layout.Separador);
+                builder.AppendLine($"{dados[0]} - {dados[1]}");
+            }
+
+            return new ReaderResult("Sucesso", builder.ToString() );
 
         }
+
+
     }
 }

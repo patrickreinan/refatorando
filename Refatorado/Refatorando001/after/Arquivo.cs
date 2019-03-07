@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Refatorando001.after.Readers;
+using System;
 using System.Collections.Generic;
 
 namespace Refatorando001.after
@@ -35,9 +36,9 @@ namespace Refatorando001.after
         /* Agora a leitura do arquivo independe do layout ou tipo de arquivo. Quando a classe é instanciada,
          * o reader é criado com base no arquivoInfo.
          */
-        public void LerArquivo(string caminho)
+        public ReaderResult ProcessarArquivo(string caminho)
         {
-            reader.LerArquivo(caminho);
+            return reader.LerArquivo(caminho);
         }
 
 

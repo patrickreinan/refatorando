@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Refatorando001.after;
+using System;
 
 namespace Refatorando001
 {
@@ -6,7 +7,12 @@ namespace Refatorando001
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var arquivoInfo = new ArquivoInfo(TipoArquivoEnum.CSV);
+            var arquivo = new Arquivo(arquivoInfo);
+            var result = arquivo.ProcessarArquivo("sample.csv");
+            Console.WriteLine(result.Data);
+            Console.Read();
+            
         }
     }
 }

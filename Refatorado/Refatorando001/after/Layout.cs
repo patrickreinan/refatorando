@@ -2,5 +2,6 @@
 {
     public class Layout
     {
+        public string Separador { get; set; }
     }
 }

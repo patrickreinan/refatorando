@@ -7,10 +7,13 @@ namespace Refatorando001.after
     {
         internal static IArquivoReader Criar(ArquivoInfo arquivoInfo)
         {
+
+            var layout = LayoutFactory.Criar(arquivoInfo);
+
             switch (arquivoInfo.TipoArquivo)
             {
-                case TipoArquivoEnum.CSV: return new ArquivoCSVReader();
-                case TipoArquivoEnum.XLS: return new ArquivoXLSReader();
+                case TipoArquivoEnum.CSV: return new ArquivoCSVReader(layout);
+                case TipoArquivoEnum.XLS: return new ArquivoXLSReader(layout);
                 default:
                     throw new NotImplementedException();
             }

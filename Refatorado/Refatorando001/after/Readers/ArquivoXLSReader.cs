@@ -1,8 +1,12 @@
 ﻿namespace Refatorando001.after.Readers
 {
-    class ArquivoXLSReader : IArquivoReader
+    class ArquivoXLSReader : ArquivoReaderBase
     {
-        public ReaderResult LerArquivo(string caminho)
+        public ArquivoXLSReader(Layout layout) : base(layout)
+        {
+        }
+
+        public override ReaderResult LerArquivo(string caminho)
         {
             //a rotina do arquivo XLS vem para cá
             /*
@@ -47,7 +51,9 @@
             */
 
             /*retorna um reader result com os dados*/
-            return new ReaderResult();
+            return new ReaderResult(null, null);
         }
+
+        
     }
 }

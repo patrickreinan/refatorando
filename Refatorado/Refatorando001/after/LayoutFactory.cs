@@ -25,7 +25,13 @@ namespace Refatorando001.after
                 layoutArquivo = new LayoutXLS(idArquivoLayout);
             }
             */
-            return null;
+
+            var result = new Layout()
+            {
+                Separador = (arquivoInfo.TipoArquivo == TipoArquivoEnum.CSV ? "," : string.Empty)
+            };
+
+            return result;
 
 
         }
