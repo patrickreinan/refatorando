@@ -7,12 +7,28 @@ namespace Refatorando001
     {
         static void Main(string[] args)
         {
-            var arquivoInfo = new ArquivoInfo(TipoArquivoEnum.CSV);
+            LerArquivoCSV("sample.csv");
+        }
+
+        static void LerArquivo(string nomeArquivo, TipoArquivoEnum tipo)
+        {
+            var arquivoInfo = new ArquivoInfo(tipo);
             var arquivo = new Arquivo(arquivoInfo);
-            var result = arquivo.ProcessarArquivo("sample.csv");
+            var result = arquivo.ProcessarArquivo(nomeArquivo);
             Console.WriteLine(result.Data);
             Console.Read();
-            
+        }
+
+
+        static void LerArquivoXLS(string nomeArquivo)
+        {
+            LerArquivo(nomeArquivo, TipoArquivoEnum.XLS);
+        }
+
+        static void LerArquivoCSV(string nomeArquivo)
+        {
+            LerArquivo(nomeArquivo, TipoArquivoEnum.CSV);
+
         }
     }
 }

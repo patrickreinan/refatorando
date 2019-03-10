@@ -30,7 +30,7 @@ namespace Refatorando001.after
         public Arquivo(ArquivoInfo arquivoInfo)
         {
             LayoutArquivo = LayoutFactory.Criar(arquivoInfo);
-            reader = ArquivoReaderFactory.Criar(arquivoInfo);
+            reader = ArquivoReaderFactory.Criar(arquivoInfo, LayoutArquivo);
         }
 
         /* Agora a leitura do arquivo independe do layout ou tipo de arquivo. Quando a classe é instanciada,

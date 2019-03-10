@@ -5,10 +5,8 @@ namespace Refatorando001.after
 {
     internal class ArquivoReaderFactory
     {
-        internal static IArquivoReader Criar(ArquivoInfo arquivoInfo)
+        internal static IArquivoReader Criar(ArquivoInfo arquivoInfo, Layout layout)
         {
-
-            var layout = LayoutFactory.Criar(arquivoInfo);
 
             switch (arquivoInfo.TipoArquivo)
             {
